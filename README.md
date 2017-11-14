@@ -6,7 +6,7 @@ The Express dev starter kit uses Lando on Mac OSX to build out the evirnoment ne
 
 Follow the installtion steps listed at: [https://docs.devwithlando.io/installation/system-requirements.html](https://docs.devwithlando.io/installation/system-requirements.html)
 
-The steps go through system requirements as well as installing and updating Lando. You should always assume the latest release of Lando is the one you should be installing. 
+The steps go through system requirements as well as installing and updating Lando. You should always assume the latest release of Lando is the one you should be installing. Look in the issues of this repo or the "Troubleshooting" section for issues with Lando releases. 
 
 ## Build Process
 The `scripts/` folder contains a bash shell script that places all the files in the right places. Then you need to follow some manual steps to install the Express site.
