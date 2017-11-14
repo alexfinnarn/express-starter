@@ -77,6 +77,7 @@ drush uli 1
 ## @todos
 
 - Resolve the `lando ssh` issue in the newest release. 
+- Allow user to change the name of the app on install via a prompt. 
 - Fix the Lando scripting issues so all you have to do is `lando start` to build out your site.
 - Add check to make sure Drupal is what Express wants. https://github.com/CuBoulder/express/blob/dev/express.profile#L8
 - Make sure Express is checked out at the latest release. It seems to be checkouted at a weird point.  
