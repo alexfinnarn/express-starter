@@ -7,13 +7,15 @@ echo Drupal downloaded.
 
 # Move Drupal to docroot.
 echo Copying Drupal to docroot.
-cp -R drupal-7.56/* web
+mv drupal-7.56/.[!.]* web
+mv drupal-7.56/* web
+rm -rf drupal-7.56
 echo Drupal copied to docroot.
 
 # Clone Express.
 echo Cloning and checking out Express.
 cd web/profiles
-git clone git@github.com:CuBoulder/express.git
+git clone -b dev git@github.com:CuBoulder/express.git
 
 # Checkout latest tag.
 cd express
