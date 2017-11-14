@@ -9,7 +9,7 @@ Follow the installtion steps listed at: [https://docs.devwithlando.io/installati
 The steps go through system requirements as well as installing and updating Lando. You should always assume the latest release of Lando is the one you should be installing. 
 
 ## Build Process
-The `scripts/` folder contains two Bash shell scripts that place all the files in the right places and then gives you a manual command to run on the Lando appserver once built.
+The `scripts/` folder contains a bash shell script that places all the files in the right places. Then you need to follow some manual steps to install the Express site.
 
 To build your Express site:
 
