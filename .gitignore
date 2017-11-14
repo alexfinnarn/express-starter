@@ -5,5 +5,4 @@
 *.idea
 
 # Ignore directories and files created during build.
-web/*
 drupal-7.56/*

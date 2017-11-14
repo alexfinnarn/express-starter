@@ -1,4 +1,4 @@
-name: foobar
+name: express
 recipe: drupal7
 config:
   webroot: web
