@@ -19,13 +19,14 @@ cd ~/Sites
 git clone git@github.com:CuBoulder/express-starter.git my-site
 cd my-site
 
+# Optional:
 # The app is called "Express" in the .lando.yml file. If you have more that one project, 
 # then you will need to change the name of the project. 
-nano .lando.yml
-
+#
+#   nano .lando.yml
+#
 # Replace "name: express" with whatever you want the app called. 
 # Ends up creating "https://express.lndo.site:444" with the "express" project name. 
-
 # Exit nano saving file.
 
 # Make sure the scripts are executable. 
