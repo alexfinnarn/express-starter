@@ -1,0 +1,5 @@
+name: foobar
+recipe: drupal7
+config:
+  webroot: web
+  xdebug: true

@@ -1,0 +1,9 @@
+# Ignore Mac OS files
+*.DS_Store
+
+# Ignore IntelliJ files.
+*.idea
+
+# Ignore directories and files created during build.
+web/*
+drupal-7.56/*
