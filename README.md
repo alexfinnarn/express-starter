@@ -6,10 +6,10 @@ The Express dev starter kit uses Lando on Mac OSX to build out the evirnoment ne
 
 Follow the installtion steps listed at: [https://docs.devwithlando.io/installation/system-requirements.html](https://docs.devwithlando.io/installation/system-requirements.html)
 
-The steps go through system requirements as well as installing and updating Lando. You should always assume the latest release of Lando is the one you should be installing. 
+The steps go through system requirements as well as installing and updating Lando. You should always assume the latest release of Lando is the one you should be installing. Look in the issues of this repo or the "Troubleshooting" section for issues with Lando releases. 
 
 ## Build Process
-The `scripts/` folder contains two Bash shell scripts that place all the files in the right places and then gives you a manual command to run on the Lando appserver once built.
+The `scripts/` folder contains a bash shell script that places all the files in the right places. Then you need to follow some manual steps to install the Express site.
 
 To build your Express site:
 
@@ -19,13 +19,14 @@ cd ~/Sites
 git clone git@github.com:CuBoulder/express-starter.git my-site
 cd my-site
 
+# Optional:
 # The app is called "Express" in the .lando.yml file. If you have more that one project, 
 # then you will need to change the name of the project. 
-nano .lando.yml
-
+#
+#   nano .lando.yml
+#
 # Replace "name: express" with whatever you want the app called. 
 # Ends up creating "https://express.lndo.site:444" with the "express" project name. 
-
 # Exit nano saving file.
 
 # Make sure the scripts are executable. 
@@ -76,6 +77,7 @@ drush uli 1
 ## @todos
 
 - Resolve the `lando ssh` issue in the newest release. 
+- Allow user to change the name of the app on install via a prompt. 
 - Fix the Lando scripting issues so all you have to do is `lando start` to build out your site.
 - Add check to make sure Drupal is what Express wants. https://github.com/CuBoulder/express/blob/dev/express.profile#L8
 - Make sure Express is checked out at the latest release. It seems to be checkouted at a weird point.  
