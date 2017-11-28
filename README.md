@@ -29,9 +29,6 @@ cd my-site
 # Ends up creating "https://express.lndo.site:444" with the "express" project name. 
 # Exit nano saving file.
 
-# Make sure the scripts are executable. 
-chmod +x ./scripts/build-express.sh
-
 # Run build script. 
 # The script will prompt you for verions of Drupal and Express. 
 ./scripts/build-express.sh
