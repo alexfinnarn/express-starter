@@ -2,7 +2,4 @@ name: express
 recipe: drupal7
 config:
   webroot: web
-sevices:
-  appserver:
-    scripts:
-      - scripts/script.sh
+  xdebug: true
