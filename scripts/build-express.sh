@@ -9,6 +9,10 @@ echo Downloading Drupal...
 drush dl drupal-${DRUPAL}
 echo Drupal downloaded.
 
+# Make docroot
+mkdir web
+echo Docroot web created.
+
 # Move Drupal to docroot.
 echo Copying Drupal to docroot.
 mv drupal-${DRUPAL} web
@@ -27,4 +31,3 @@ cd express
 #latesttag=$(git describe --tags)
 echo checking out ${EXPRESS}
 git checkout ${EXPRESS}
-
