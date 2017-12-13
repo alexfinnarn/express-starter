@@ -22,11 +22,13 @@ services:
       services:
         environment:
           BEHAT_PARAMS: '{"extensions":{"Drupal\\DrupalExtension":{"drupal":{"drupal_root":"/app/web/express"}},"Behat\\MinkExtension":{"base_url":"http://express.lndo.site:8000/express","files_path":"/app/web/express/profiles/express/tests/behat/assets/"}}}'
+          DSLM_BASE: '/app/code/dslm_base'
+          PACKAGES_BASE: '/app/code/packages_base'
 tooling:
-  build:
+  create-site:
     service: appserver
     cmd:
-      - "./scripts/build-express.sh"
+      - "./scripts/create-site.sh"
   test:
     service: appserver
     cmd:
