@@ -7,7 +7,6 @@
 # Ignore directories and files created during build.
 web/*
 !/web/.gitkeep
-
 code/*
 !code/dslm_base/cores/.gitkeep
 !code/dslm_base/profiles/.gitkeep

@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-DRUPAL_TAG=7.56-hardered
+DRUPAL_TAG=7.56
 EXPRESS_TAG=2.8.0
 
 # Store local project root.
@@ -15,9 +15,12 @@ export PACKAGES_BASE="/app/code/packages_base"
 # Download Drupal.
 echo Downloading Drupal...
 cd ${ROOT}/code/dslm_base/cores
-git clone git@github.com:CuBoulder/drupal-7.x.git ${DRUPAL_TAG}
-cd ${DRUPAL_TAG}
-git checkout ${DRUPAL_TAG}
+drush dl drupal-${DRUPAL_TAG}
+
+# Too slow to clone down whole repo.
+#git clone git@github.com:CuBoulder/drupal-7.x.git ${DRUPAL_TAG}
+#cd ${DRUPAL_TAG}
+#git checkout ${DRUPAL_TAG}
 
 # Checkout Express.
 echo Cloning and checking out Express.
@@ -28,6 +31,8 @@ cd express-${EXPRESS_TAG}
 #latesttag=$(git describe --tags)
 echo checking out ${EXPRESS_TAG}
 git checkout ${EXPRESS_TAG}
+
+echo Now "lando ssh" and "drush dl dslm-7.x" to build a site.
 
 # Move Drupal to docroot.
 cd ${ROOT}/web
