@@ -14,14 +14,11 @@ $code_items= (array) json_decode(curl_exec($curl));
 $code_array = @array_flip(array_map('_get_git_urls', $code_items['_items']));
 $code_string = implode("\n", array_keys($code_array));
 
-$file = './manifest.txt';
-$content = file_get_contents($file);
-
-// Append a new person to the file
-$content .= $code_string;
+$handle = fopen('manifest.txt', 'w') or die('Cannot open file:  '.$my_file);
+$content = file_get_contents('manifest.txt');
 
 // Write the contents back to the file
-file_put_contents($file, $content);
+file_put_contents($file, $content .= $code_string);
 
 
 function _get_git_urls($item) {
