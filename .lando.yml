@@ -3,3 +3,31 @@ recipe: drupal7
 config:
   webroot: web
   xdebug: true
+proxy:
+  appserver:
+    - my.express.foo
+services:
+  appserver:
+    extras:
+      # Install nano for text editing.
+      - apt-get update -y
+      - apt-get install nano
+      # Install Google Chrome for testing.
+      #- wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub |  apt-key add -
+      #- sh -c 'echo "deb http://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google.list'
+      #- apt-get update -y
+      #- apt-get install google-chrome-stable -y
+      #- google-chrome-stable --disable-gpu --headless --remote-debugging-address=0.0.0.0 --remote-debugging-port=9222 > /dev/null 2>&1 &
+    overrides:
+      services:
+        environment:
+          BEHAT_PARAMS: '{"extensions":{"Drupal\\DrupalExtension":{"drupal":{"drupal_root":"/app/web/express"}},"Behat\\MinkExtension":{"base_url":"http://express.lndo.site:8000/express","files_path":"/app/web/express/profiles/express/tests/behat/assets/"}}}'
+tooling:
+  build:
+    service: appserver
+    cmd:
+      - "./scripts/build-express.sh"
+  test:
+    service: appserver
+    cmd:
+      - /app/profiles/express/tests/behat/bin/behat -c behat.local.yml --verbose --tags '~@exclude_all_bundles&&~broken'
