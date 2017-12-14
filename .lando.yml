@@ -2,16 +2,11 @@ name: express
 recipe: drupal7
 config:
   webroot: web
-  xdebug: true
-proxy:
-  appserver:
-    - my.express.foo
+  #xdebug: true
+  php: '7.1'
 services:
   appserver:
     extras:
-      # Install nano for text editing.
-      - apt-get update -y
-      - apt-get install nano
       # Install Google Chrome for testing.
       #- wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub |  apt-key add -
       #- sh -c 'echo "deb http://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google.list'
@@ -24,15 +19,16 @@ services:
           BEHAT_PARAMS: '{"extensions":{"Drupal\\DrupalExtension":{"drupal":{"drupal_root":"/app/web/express"}},"Behat\\MinkExtension":{"base_url":"http://express.lndo.site:8000/express","files_path":"/app/web/express/profiles/express/tests/behat/assets/"}}}'
           DSLM_BASE: '/app/code/dslm_base'
           PACKAGES_BASE: '/app/code/packages_base'
-  database:
-    portforward: 3308
 tooling:
   create-site:
     service: appserver
     cmd:
       - "./scripts/create-site.sh"
-    options:
-  test:
+  add-tools:
     service: appserver
     cmd:
-      - /app/profiles/express/tests/behat/bin/behat -c behat.local.yml --verbose --tags '~@exclude_all_bundles&&~broken'
+      - "./scripts/add-tools.sh"
+  #test:
+    #service: appserver
+    #cmd:
+      #- /app/profiles/express/tests/behat/bin/behat -c behat.local.yml --verbose --tags '~@exclude_all_bundles&&~broken'

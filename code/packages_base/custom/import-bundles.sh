@@ -1,10 +1,5 @@
 #!/usr/bin/env bash
 
-# Store local project root.
-ROOT='/Users/alfi2595/Sites/exs'
-echo Project root is: ${ROOT}
-
-cd ${ROOT}/code/packages_base/custom
 
 start=`date +%s`
 
