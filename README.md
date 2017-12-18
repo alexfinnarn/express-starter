@@ -22,7 +22,7 @@ The `scripts/` folder contains a shell script that sets up the initial codebase 
 
 ```bash
 # Run build script. 
-./scripts/build-express.sh
+./scripts/build-code.sh
 ```
 ### Bundle Code Setup
 
