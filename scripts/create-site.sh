@@ -45,8 +45,8 @@ runtime=$((end-start))
 echo Site installation took ${runtime} seconds.
 
 # Disable parts of site not available on this setup.
-echo Disabling Memcache and Varnish...
-drush dis memcache varnish -y
+#echo Disabling Memcache and Varnish...
+#drush dis memcache varnish -y
 
 # Add to settings file.
 
