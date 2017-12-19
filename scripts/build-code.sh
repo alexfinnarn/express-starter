@@ -5,7 +5,7 @@ DRUPAL_TAG=7.56
 EXPRESS_TAG=2.8.0
 
 # Store local project root.
-ROOT='/Users/alfi2595/Sites/exs'
+ROOT=$(pwd)
 echo Project root is: ${ROOT}
 
 # Download Drupal.
