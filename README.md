@@ -18,7 +18,7 @@ cd my-root
 
 ### Drupal And Express Setup 
 
-The `scripts/` folder contains a shell script that sets up the initial codebase needed for an Express site: Drupal core and the Express profile. You will need to add the full path of your project root, e.g. path to "my-root" where ROOT is defined. You can also change the pinned versions of Drupal and Express initially installed. 
+The `scripts/` folder contains a shell script that sets up the initial codebase needed for an Express site: Drupal core and the Express profile. You can change the pinned versions of Drupal and Express initially installed; however, you have to add them in a way that DSLM expects them to show up as mentioned below in "Adding More Cores And Profiles". 
 
 ```bash
 # Run build script. 
@@ -72,14 +72,14 @@ cd my-root
 lando add-tools
 ```
 
-You can now run a command including the path you want your site at and an interactive prompt will ask you what code you want to install. 
+You can now run a command including the path you want your site at and an interactive prompt will ask you what code you want to install. Note that SQL has reserved words that cannot be used for a path, e.g. "like", because the path is also the db name.
 
 ```bash
 cd my-root
 lando create-site my-path
 
 # If you are installing a backup of a site, then follow: 
-# https://docs.devwithlando.io/tutorials/drupal7.html#importing-your-database
+# https://docs.devwithlando.io/tutorials/drupal7.html#importing-your-database 
 ```
 
 ## Go To Your Express Site After Install.
@@ -109,6 +109,9 @@ lando logs -s appserver
 
 # Tail logs...
 lando logs -t -f
+
+# Rebuild Lando app.
+lando rebuild
 
 # The LDAP login was working, but you can use drush to login if it isn't. 
 lando ssh
