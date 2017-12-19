@@ -31,6 +31,8 @@ services:
     #type: memcached:1.5
     #mem: 128
     #portforward: 11211
+  database:
+    portforward: 3308
 tooling:
   create-site:
     service: appserver
