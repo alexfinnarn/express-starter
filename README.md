@@ -76,7 +76,11 @@ You can now run a command including the path you want your site at and an intera
 
 ```bash
 cd my-root
-lando create-site my-path
+lando create-site -p my-path
+
+# You can specify an -h option for hard links instead of DSLM links.
+# It is easier to setup Xdebug path mappings without symlinks. 
+lando create-site -h -p my-path
 
 # If you are installing a backup of a site, then follow: 
 # https://docs.devwithlando.io/tutorials/drupal7.html#importing-your-database 
@@ -113,6 +117,9 @@ lando logs -t -f
 # Rebuild Lando app.
 lando rebuild
 
+# LDAP requires SSL login. If for some reason, you need to login via HTTP...
+drush vset ldap_servers_require_ssl_for_credentials 0
+
 # The LDAP login was working, but you can use drush to login if it isn't. 
 lando ssh
 cd web
@@ -123,6 +130,14 @@ lando ssh
 cd web
 drush uublk 1
 drush uli 1
+
+# You may experience issues if another service is listening on ports 80 and 443.
+# Find out if any service listens on those ports. 
+sudo lsof -n -i :80 | grep LISTEN
+sudo lsof -n -i :443 | grep LISTEN
+
+# If any services are listed, you can try killing them or stop them a different way. 
+sudo kill -9 $PID
 ```
 
 More tips:
