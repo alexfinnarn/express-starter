@@ -76,7 +76,11 @@ You can now run a command including the path you want your site at and an intera
 
 ```bash
 cd my-root
-lando create-site my-path
+lando create-site -p my-path
+
+# You can specify an -h option for hard links instead of DSLM links.
+# It is easier to setup Xdebug path mappings without symlinks. 
+lando create-site -h -p my-path
 
 # If you are installing a backup of a site, then follow: 
 # https://docs.devwithlando.io/tutorials/drupal7.html#importing-your-database 
