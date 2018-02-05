@@ -23,10 +23,10 @@ rm -rf php aggregator blog book color contact translation dashboard forum locale
 # Checkout Express.
 echo Cloning and checking out Express ${EXPRESS_TAG}...
 cd ${ROOT}/code/dslm_base/profiles
-git clone -b ${EXPRESS_TAG} git@github.com:CuBoulder/express.git express-${EXPRESS_TAG}
+git clone --depth=50 -b ${EXPRESS_TAG} git@github.com:CuBoulder/express.git express-${EXPRESS_TAG}
 
 # Install Behat dependencies.
-#echo Installing Behat dependencies...
-#cd ${ROOT}/code/dslm_base/profiles/express-${EXPRESS_TAG}/tests/behat
-#composer install
+echo Installing Behat dependencies...
+cd ${ROOT}/code/dslm_base/profiles/express-${EXPRESS_TAG}/tests/behat
+composer install
 

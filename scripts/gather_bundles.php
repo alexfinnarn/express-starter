@@ -20,9 +20,11 @@ $content = file_get_contents('manifest.txt');
 // Write the contents back to the file
 file_put_contents($file, $content .= $code_string);
 
-
 function _get_git_urls($item) {
-  if (strpos($item->git_url, 'git://') === false && strpos($item->git_url, 'https://') === false && strpos($item->git_url, 'express.git') === false && strpos($item->git_url, 'drupal-7.x.git') === false) {
+  if (strpos($item->git_url, 'git://') === false
+    && strpos($item->git_url, 'https://') === false
+    && strpos($item->git_url, 'express.git') === false
+    && strpos($item->git_url, 'drupal-7.x.git') === false) {
     return $item->git_url;
   }
 }
