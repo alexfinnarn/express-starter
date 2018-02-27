@@ -1,0 +1,36 @@
+version: "3"
+services:
+  web:
+    #depends_on:
+     # - db
+    image: express-php:latest
+    volumes:
+      - ./src:/var/www/html:cached
+    #ports:
+     # - "8058:80"
+    restart: always
+    #networks:
+      #app_net:
+        #ipv4_address: 172.25.0.101
+  #db:
+   # image: mysql:5.7
+    #volumes:
+     # - dbdata:/var/lib/mysql:delegated
+    #restart: always
+    #environment:
+      #MYSQL_ROOT_PASSWORD: root
+      #MYSQL_DATABASE: express
+      #MYSQL_USER: express
+      #MYSQL_PASSWORD: express
+
+#volumes:
+ #   dbdata:
+
+#networks:
+ # app_net:
+  #  driver: bridge
+   # ipam:
+    #  config:
+     #   - subnet: 172.25.0.0/24
+      #  gateway: 172.25.0.1
+
