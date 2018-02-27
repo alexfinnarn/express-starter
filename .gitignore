@@ -1,16 +1,1 @@
-# Ignore Mac OS files
-*.DS_Store
-
-# Ignore IntelliJ files.
 *.idea
-
-# Ignore directories and files created during build.
-web/*
-!/web/.gitkeep
-code/*
-!code/dslm_base/cores/.gitkeep
-!code/dslm_base/profiles/.gitkeep
-!code/packages_base/custom/.gitkeep
-!code/packages_base/custom/manifest.txt
-!code/packages_base/custom/import-bundles.sh
-!code/packages_base/contrib/.gitkeep
