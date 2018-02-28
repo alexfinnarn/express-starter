@@ -83,7 +83,6 @@ valet park
 echo
 echo "You should now be able to create a site using './create-site.sh -p express' and have it served at http://express.test/"
 
-
 END=`date +%s`
 
 RUNTIME=$((END-START))
