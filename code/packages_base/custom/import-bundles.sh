@@ -5,7 +5,7 @@ start=`date +%s`
 
 while IFS='' read -r line || [[ -n "$line" ]]; do
     echo "Cloning down: $line"
-    git clone ${line}
+    git clone --depth 1 ${line}
 done < "$1"
 
 end=`date +%s`
