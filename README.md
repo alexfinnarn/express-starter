@@ -12,8 +12,12 @@ Once Valet is installed and you have confirmed `.test` domains are working prope
 git clone --branch valet git@github.com:CuBoulder/express-starter.git exs
 cd exs
 
-# The setup script will copy down code and setup DSLM.
+# The setup script will copy down Express code, add DSLM, add MySQL and PHP settings, and "park" the /web directory.
 ./setup.sh
+
+# Create a site with a "-p" path option. The site will be live at "path.test" when installation finishes.
+# For this example, a site is created at "http://express.test/".
+./create-site.sh -p express
 ```
 
 
