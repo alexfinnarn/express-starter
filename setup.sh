@@ -12,9 +12,9 @@ read ADD_CONFIG
 
 if [ "$ADD_CONFIG" =  "y" ]; then
   PHP_DIR="$(php -i | grep 'Scan this dir for additional .ini files ' | tr -d '[:space:]'  | cut -d'>' -f2)"
+  echo
   echo "Copying php.ini to ${PHP_DIR}..."
   cp config/php/zzzzzz-express-custom.ini ${PHP_DIR}
-  echo
 
   echo "Copying .my.cnf to user directory (~/)..."
   cp config/mysql/.my.cnf ~/
@@ -22,7 +22,6 @@ if [ "$ADD_CONFIG" =  "y" ]; then
 
   echo "Restarting MySQL..."
   mysql.server restart
-  echo
 
   echo "Checking MySQL status..."
   mysql.server status
@@ -38,9 +37,10 @@ EXPRESS_TAG=2.8.5
 echo "Cloning and checking out ${DRUPAL_TAG}..."
 cd ${ROOT}/code/dslm_base/cores
 
-# git clone --depth 1 git@github.com:CuBoulder/drupal-7.x.git drupal-${DRUPAL_TAG}
-# cd ${DRUPAL_TAG}
-# git checkout ${DRUPAL_TAG}
+# Main
+#git clone --depth 1 git@github.com:CuBoulder/drupal-7.x.git drupal-${DRUPAL_TAG}
+#cd drupal-${DRUPAL_TAG}
+#git checkout ${DRUPAL_TAG}-hardened
 
 drush dl drupal-${DRUPAL_TAG}
 cd drupal-${DRUPAL_TAG}/modules
@@ -70,12 +70,19 @@ fi
 drush dl dslm-7.x
 
 # Append DSLM config to drushrc.php
-echo Checking DSLM config...
+echo "Checking DSLM config..."
 echo
 drush dslm
 echo
-echo
 echo "If you don't see DSLM path info, add it to ~/.drush/drushrc.php"
+echo
+
+echo "Parking /web path via Valet..."
+cd ${ROOT}/web
+valet park
+echo
+echo "You should now be able to create a site using './create-site.sh -p express' and have it served at http://express.test/"
+
 
 END=`date +%s`
 
