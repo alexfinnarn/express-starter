@@ -1,0 +1,67 @@
+#!/usr/bin/env bash
+
+# Store local project root.
+ROOT=$(pwd)
+echo Project root is: ${ROOT}
+
+echo "Do you want to copy php.ini and my.cnf settings? (y/n)"
+read ADDCONFIG
+
+if [ "$ADDCONFIG" =  "y" ]; then
+  PHP_DIR="$(php -i | grep 'Scan this dir for additional .ini files ' | tr -d '[:space:]'  | cut -d'>' -f2)"
+  echo "Copying php.ini to ${PHP_DIR}..."
+  cp config/php/zzzzzz-express-custom.ini ${PHP_DIR}
+  echo
+
+  echo "Copying .my.cnf to user directory (~/)..."
+  cp config/mysql/.my.cnf ~/
+  echo
+
+  echo "Restarting MySQL..."
+  mysql.server restart
+  echo
+
+  echo "Checking MySQL status..."
+  mysql.server status
+  echo
+
+fi
+
+# Define initial gathering of Drupal and Express.
+DRUPAL_TAG=7.57
+# The tag is only used here to create the DSLM directory.
+EXPRESS_TAG=2.8.5
+
+# Download Drupal.
+echo "Cloning and checking out ${DRUPAL_TAG}..."
+cd ${ROOT}/code/dslm_base/cores
+
+# git clone git@github.com:CuBoulder/drupal-7.x.git drupal-${DRUPAL_TAG}
+# cd ${DRUPAL_TAG}
+# git checkout ${DRUPAL_TAG}
+
+drush dl drupal-${DRUPAL_TAG}
+cd drupal-${DRUPAL_TAG}/modules
+rm -rf php aggregator blog book color contact translation dashboard forum locale openid overlay poll rdf search statistics toolbar tracker trigger
+
+# Checkout Express.
+echo "Cloning and checking out Express ${EXPRESS_TAG}..."
+cd ${ROOT}/code/dslm_base/profiles
+
+# If checking out a tag...
+# git clone -b ${EXPRESS_TAG} git@github.com:CuBoulder/express.git express-${EXPRESS_TAG}
+
+# Checking out default of dev branch.
+git clone git@github.com:CuBoulder/express.git express-${EXPRESS_TAG}
+
+# Download DSLM if it doesn't already exist on host machine.
+drush dl dslm-7.x
+
+# Append DSLM config to drushrc.php
+echo Checking DSLM config...
+echo
+drush dslm
+echo
+echo
+echo "If you don't see DSLM path info, add it to ~/.drush/drushrc.php"
+

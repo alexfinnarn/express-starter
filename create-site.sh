@@ -74,7 +74,7 @@ fi
 # Install site
 start=`date +%s`
 echo Installing site...eat a sandwich, have a danish.
-drush si express --db-url=mysql://root:@database:3306/${SITE} -y
+drush si express --db-url=mysql://root:@localhost:3306/${SITE} -y
 end=`date +%s`
 
 runtime=$((end-start))

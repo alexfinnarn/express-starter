@@ -1,8 +1,10 @@
 #!/usr/bin/env bash
 
 # Define initial gathering of Drupal and Express.
-DRUPAL_TAG=7.56
-EXPRESS_TAG=2.8.0
+DRUPAL_TAG=7.57
+
+# We can't use tags since we don't always tag.
+# EXPRESS_TAG=2.8.0
 
 # Store local project root.
 ROOT=$(pwd)
