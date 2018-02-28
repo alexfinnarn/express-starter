@@ -13,4 +13,5 @@ code/*
 !code/packages_base/custom/.gitkeep
 !code/packages_base/custom/manifest.txt
 !code/packages_base/custom/import-bundles.sh
+!code/packages_base/custom/gather_bundles.php
 !code/packages_base/contrib/.gitkeep
