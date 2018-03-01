@@ -29,9 +29,17 @@ The configuration files are located in the `/config` folder. You need to restart
 
 This install assumes that mysql is configured using root with no password.  If you've configured mysql using a password, brew will not reset that.  Use `mysqladmin -u root -p'root' password ''`
 
-./create-site.sh must be able to connect to Atlas to lookup the git urls and hashes of the current code objects. You must be on a wired connection or connected to the UCOMM VPN when running this. 
+When `./setup.sh` asks "Do you want to clone down all bundles from prod? (y/n)" you must be able to connect to Atlas to lookup the git urls and hashes of the current code objects. You must be on a wired connection or connected to the UCOMM VPN when running this. 
 
-Be sure Apache/httpd (from Apple or brew) is no longer the default listener for port 80.  The drush commands can run the Drupal install for Valet using the command line PHP properly, but an "It Works!" response for http://express.test can actually be coming from Apache and not Nginx. Use the following to kill all httpd processes and prevent it from restarting.
+Be sure Apache/httpd (from Apple or Homebrew) is no longer the default listener for port 80.  
+
+```bash
+# Find out if any service listens on port 80.
+# You should only see "nginx" and not "httpd".
+sudo lsof -n -i :80 | grep LISTEN
+```
+
+The drush commands can run the Drupal install for Valet using the command line PHP properly, but an "It Works!" response for http://express.test can actually be coming from Apache and not Nginx. Use the following to kill all httpd processes and prevent it from restarting.
 
 ```bash
 sudo killall httpd
