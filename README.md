@@ -29,7 +29,11 @@ The configuration files are located in the `/config` folder. You need to restart
 
 This install assumes that mysql is configured using root with no password.  If you've configured mysql using a password, brew will not reset that.  Use `mysqladmin -u root -p'root' password ''`
 
+### Bundle Clone Hangs
+
 When `./setup.sh` asks "Do you want to clone down all bundles from prod? (y/n)" you must be able to connect to Atlas to lookup the git urls and hashes of the current code objects. You must be on a wired connection or connected to the UCOMM VPN when running this. 
+
+### Apache Listening On Port 80
 
 Be sure Apache/httpd (from Apple or Homebrew) is no longer the default listener for port 80.  
 
@@ -45,6 +49,8 @@ The drush commands can run the Drupal install for Valet using the command line P
 sudo killall httpd
 sudo launchctl unload /System/Library/LaunchDaemons/org.apache.httpd.plist
 ```
+
+### Homebrew PHP Versions
 
 [DomainException] Unable to determine linked PHP is documented in https://github.com/laravel/valet/issues/470.  It may not be possible to resolve this error using the `brew install php72` recommended in https://laravel.com/docs/5.6/valet.  Using `brew install php71` works and is what we are using with Apache in production.
 
