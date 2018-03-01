@@ -27,6 +27,8 @@ The configuration files are located in the `/config` folder. You need to restart
 
 ## Troubleshooting
 
+### MySQL User
+
 This install assumes that mysql is configured using root with no password.  If you've configured mysql using a password, brew will not reset that.  Use `mysqladmin -u root -p'root' password ''`
 
 ### Bundle Clone Hangs
