@@ -31,4 +31,11 @@ This install assumes that mysql is configured using root with no password.  If y
 
 ./create-site.sh must be able to connect to Atlas to lookup the git urls and hashes of the current code objects. You must be on a wired connection or connected to the UCOMM VPN when running this. 
 
+Be sure Apache/httpd (from Apple or brew) is no longer the default listener for port 80.  The drush commands can run the Drupal install for Valet using the command line PHP properly, but an "It Works!" response for http://express.test can actually be coming from Apache and not Nginx. Use the following to kill all httpd processes and prevent it from restarting.
+
+```sudo killall httpd
+sudo launchctl unload /System/Library/LaunchDaemons/org.apache.httpd.plist
+```
+
+[DomainException] Unable to determine linked PHP is documented in https://github.com/laravel/valet/issues/470.  It may not be possible to resolve this error using the `brew install php72` recommended in https://laravel.com/docs/5.6/valet.  Using `brew install php71` works and is what we are using with Apache in production.
 
