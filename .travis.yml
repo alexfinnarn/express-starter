@@ -2,6 +2,7 @@ os: osx
 
 install:
   - brew install homebrew/php/php72
+  - brew install composer
   - composer global require laravel/valet
   - valet install
 
