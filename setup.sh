@@ -6,28 +6,6 @@ START=`date +%s`
 ROOT=$(pwd)
 echo Project root is: ${ROOT}
 
-# Add PHP and MySQL config, if desired.
-echo "Do you want to copy php.ini and my.cnf settings? (y/n)"
-read ADD_CONFIG
-
-if [ "$ADD_CONFIG" =  "y" ]; then
-  PHP_DIR="$(php -i | grep 'Scan this dir for additional .ini files ' | tr -d '[:space:]'  | cut -d'>' -f2)"
-  echo
-  echo "Copying php.ini to ${PHP_DIR}..."
-  cp config/php/zzzzzz-express-custom.ini ${PHP_DIR}
-
-  echo "Copying .my.cnf to user directory (~/)..."
-  cp config/mysql/.my.cnf ~/
-  echo
-
-  echo "Restarting MySQL..."
-  mysql.server restart
-
-  echo "Checking MySQL status..."
-  mysql.server status
-  echo
-fi
-
 # Define initial gathering of Drupal and Express.
 DRUPAL_TAG=7.57
 # The tag is only used here to create the DSLM directory.
