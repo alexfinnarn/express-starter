@@ -19,9 +19,16 @@ cd exs
 # For this example, a site is created at "http://express.test/".
 ./create-site.sh -p express
 ```
+### Services Configuration
 
-### Troubleshooting
+The configuration for nginx, PHP, and MySQL can be changed, but we don't do this on install since restarting the services has been spotty. Changing the default configuration isn't neccessary to have a fast running site, but you may want to experiment with values if you think parts of the application are running slow.
+
+The configuration files are located in the `/config` folder. You need to restart MySQL and PHP when making changes.
+
+## Troubleshooting
 
 This install assumes that mysql is configured using root with no password.  If you've configured mysql using a password, brew will not reset that.  Use `mysqladmin -u root -p'root' password ''`
 
 ./create-site.sh must be able to connect to Atlas to lookup the git urls and hashes of the current code objects. You must be on a wired connection or connected to the UCOMM VPN when running this. 
+
+
