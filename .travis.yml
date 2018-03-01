@@ -1,9 +1,18 @@
 os: osx
 
 before_install:
+  # Install dependencies.
   - brew install homebrew/php/php72
   - brew install composer
   - composer global require laravel/valet
+
+  # Need to export Composer path.
+  - echo $USER
+  - ls -al /Users/$USER
+  - echo "export PATH='/Users/${USER}/.composer/vendor/bin:$PATH'" >> ~/.bash_profile
+  - source ~/.bash_profile
+
+  # Install Valet.
   - valet install
 
 script:
