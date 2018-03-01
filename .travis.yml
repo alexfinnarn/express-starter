@@ -2,7 +2,7 @@ os: osx
 
 before_install:
   # Install dependencies.
-  - brew install homebrew/php/php72
+  - brew install homebrew/php/php71
   - brew install composer
   - composer global require laravel/valet
 
