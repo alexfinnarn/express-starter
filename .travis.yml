@@ -1,0 +1,14 @@
+os: osx
+
+install:
+  - brew install homebrew/php/php72
+  - composer global require laravel/valet
+  - valet install
+
+script:
+  # See if NGINX responds.
+  # - ping foobar.test
+
+  # Run setup script.
+  - ./travis-setup.sh
+

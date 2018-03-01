@@ -1,3 +1,4 @@
+<?php
 
 $options['dslm_base'] = '/my-user/this-repo/code/dslm_base';
 $options['packages_base'] = '/my-user/this-repo/codepackages_base';
