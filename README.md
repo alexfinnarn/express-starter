@@ -23,7 +23,7 @@ cd exs
 
 The configuration for nginx, PHP, and MySQL can be changed, but we don't do this on install since restarting the services has been spotty. Changing the default configuration isn't neccessary to have a fast running site, but you may want to experiment with values if you think parts of the application are running slow.
 
-The configuration files are located in the `/config` folder. You need to restart MySQL and PHP when making changes.
+The configuration files are located in the `/config` folder. You need to restart MySQL and PHP when making changes. Look in the readme for more information: https://github.com/CuBoulder/express-starter/blob/valet/config/README.md
 
 ## Troubleshooting
 
@@ -33,7 +33,8 @@ This install assumes that mysql is configured using root with no password.  If y
 
 Be sure Apache/httpd (from Apple or brew) is no longer the default listener for port 80.  The drush commands can run the Drupal install for Valet using the command line PHP properly, but an "It Works!" response for http://express.test can actually be coming from Apache and not Nginx. Use the following to kill all httpd processes and prevent it from restarting.
 
-```sudo killall httpd
+```bash
+sudo killall httpd
 sudo launchctl unload /System/Library/LaunchDaemons/org.apache.httpd.plist
 ```
 
