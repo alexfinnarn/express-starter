@@ -20,5 +20,8 @@ cd exs
 ./create-site.sh -p express
 ```
 
+### Troubleshooting
 
+This install assumes that mysql is configured using root with no password.  If you've configured mysql using a password, brew will not reset that.  Use `mysqladmin -u root -p'root' password ''`
 
+./create-site.sh must be able to connect to Atlas to lookup the git urls and hashes of the current code objects. You must be on a wired connection or connected to the UCOMM VPN when running this. 
