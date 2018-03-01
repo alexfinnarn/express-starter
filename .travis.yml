@@ -1,6 +1,6 @@
 os: osx
 
-install:
+before_install:
   - brew install homebrew/php/php72
   - brew install composer
   - composer global require laravel/valet
