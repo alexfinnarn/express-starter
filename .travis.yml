@@ -12,7 +12,7 @@ before_install:
   - brew install composer
   - brew install mysql
   - composer global require laravel/valet
-  - composer global require "drush/drush:dev-8.x" -v
+  - composer why-not "drush/drush:8.*" -v
 
   - drush
   - ./ddd.sh
