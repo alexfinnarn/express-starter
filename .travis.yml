@@ -26,8 +26,6 @@ before_install:
   - valet install
 
 script:
-  # See if NGINX responds.
-  # - ping foobar.test
 
   # Start MySQL.
   - brew services start mysql
@@ -42,4 +40,8 @@ script:
   - cd express
   - drush dslm-add-profile express-2.8.5 -y
   - drush si express --db-url=mysql://root:@127.0.0.1/drupal --account-name=admin --account-pass=admin --site-mail=admin@example.com --site-name="Express" --yes
+
+  # See if site responds with a 200.
+  - HTTP_CODE=$(curl --write-out %{http_code} --silent --output /dev/null express.test)
+  - if [ "$HTTP_CODE" -eq "200" ]; then exit 0; else exit 1; fi
 
