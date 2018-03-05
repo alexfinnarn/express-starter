@@ -37,7 +37,8 @@ script:
 
   # Create site.
   - cd web
-  - drush dslm new express drupal-7.57 -y
+  - drush dslm-new express drupal-7.57 -y
+  - ls -al
   - cd express
   - drush dslm-add-profile express-2.8.5 -y
   - drush si express --db-url=mysql://root:@127.0.0.1/drupal --account-name=admin --account-pass=admin --site-mail=admin@example.com --site-name="Express" --yes
