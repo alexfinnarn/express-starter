@@ -13,14 +13,14 @@ before_install:
   - brew install mysql
   - composer global require laravel/valet "drush/drush:8.*" -v
 
-  - drush
-  - ./ddd.sh
-
   # Need to export Composer path.
   - echo $USER
   - ls -al /Users/$USER
   - echo "export PATH='/Users/${USER}/.composer/vendor/bin:$PATH'" >> ~/.bash_profile
   - source ~/.bash_profile
+
+  - drush
+  - ./ddd.sh
 
   # Install Valet.
   - valet install
