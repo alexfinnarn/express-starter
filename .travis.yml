@@ -19,9 +19,6 @@ before_install:
   - echo "export PATH='/Users/${USER}/.composer/vendor/bin:$PATH'" >> ~/.bash_profile
   - source ~/.bash_profile
 
-  - drush
-  - ./ddd.sh
-
   # Install Valet.
   - valet install
 
