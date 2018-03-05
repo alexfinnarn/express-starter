@@ -19,6 +19,9 @@ before_install:
   - echo "export PATH='/Users/${USER}/.composer/vendor/bin:$PATH'" >> ~/.bash_profile
   - source ~/.bash_profile
 
+  # Copy local Drush settings.
+  - cp config/drushrc.php ~/.drush
+
   # Install Valet.
   - valet install
 
