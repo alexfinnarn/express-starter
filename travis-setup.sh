@@ -22,7 +22,7 @@ rm -rf php aggregator blog book color contact translation dashboard forum locale
 # Checkout Express.
 echo "Cloning and checking out Express ${EXPRESS_TAG}..."
 cd ${ROOT}/code/dslm_base/profiles
-git clone --depth 1 git@github.com:CuBoulder/express.git express-${EXPRESS_TAG} -y
+git clone --depth 1 git@github.com:CuBoulder/express.git express-${EXPRESS_TAG}
 
 # Download DSLM if it doesn't already exist on host machine.
 drush dl dslm-7.x -y
