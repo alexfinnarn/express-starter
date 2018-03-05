@@ -1,12 +1,18 @@
 os: osx
 
+cache:
+  directories:
+    - $HOME/.composer/cache
+    - $HOME/.drush/cache
+    - $HOME/cache
+
 before_install:
   # Install dependencies.
   - brew install homebrew/php/php71
   - brew install composer
   - brew install mysql
   - composer global require laravel/valet
-  - composer global require "drush/drush:8.*" -v
+  - composer global require "drush/drush:dev-8.x" -v
 
   - drush
   - ./ddd.sh
