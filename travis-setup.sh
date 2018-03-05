@@ -15,17 +15,17 @@ EXPRESS_TAG=2.8.5
 echo "Cloning and checking out ${DRUPAL_TAG}..."
 cd ${ROOT}/code/dslm_base/cores
 
-drush dl drupal-${DRUPAL_TAG}
+drush dl drupal-${DRUPAL_TAG} -y
 cd drupal-${DRUPAL_TAG}/modules
 rm -rf php aggregator blog book color contact translation dashboard forum locale openid overlay poll rdf search statistics toolbar tracker trigger
 
 # Checkout Express.
 echo "Cloning and checking out Express ${EXPRESS_TAG}..."
 cd ${ROOT}/code/dslm_base/profiles
-git clone --depth 1 git@github.com:CuBoulder/express.git express-${EXPRESS_TAG}
+git clone --depth 1 git@github.com:CuBoulder/express.git express-${EXPRESS_TAG} -y
 
 # Download DSLM if it doesn't already exist on host machine.
-drush dl dslm-7.x
+drush dl dslm-7.x -y
 
 # Append DSLM config to drushrc.php
 echo "Checking DSLM config..."

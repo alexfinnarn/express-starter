@@ -4,6 +4,7 @@ before_install:
   # Install dependencies.
   - brew install homebrew/php/php71
   - brew install composer
+  - brew install mysql
   - composer global require laravel/valet
 
   # Need to export Composer path.
@@ -18,6 +19,9 @@ before_install:
 script:
   # See if NGINX responds.
   # - ping foobar.test
+
+  # Start MySQL.
+  - brew services start mysql
 
   # Run setup script.
   - ./travis-setup.sh
