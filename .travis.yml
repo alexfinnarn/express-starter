@@ -11,8 +11,7 @@ before_install:
   - brew install homebrew/php/php71
   - brew install composer
   - brew install mysql
-  - composer global require laravel/valet
-  - composer why-not "drush/drush:8.*" -v
+  - composer global require laravel/valet "drush/drush:8.*" -v
 
   - drush
   - ./ddd.sh
