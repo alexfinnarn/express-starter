@@ -25,6 +25,20 @@ The configuration for nginx, PHP, and MySQL can be changed, but we don't do this
 
 The configuration files are located in the `/config` folder. You need to restart MySQL and PHP when making changes. Look in the readme for more information: https://github.com/CuBoulder/express-starter/blob/valet/config/README.md
 
+### Valet Share
+
+You can go into a directory of a site and use `valet share` to get a publicly accessible URL for your local site. However, since the request is passed through a proxy, Drupal will report that your local site's URL, e.g. "express.test", is the `$base_url`. Any asset with an absolute path does not get loaded then on the shared URL version of the site. The "ngrok.io" service used to share the site adds additional HTTP headers that can be targeted to change the base URL when requests are passed through the proxy.
+
+You need to add the following to your settings.php file.
+
+```php
+if (isset($_SERVER['HTTP_X_FORWARDED_HOST'])) {
+  $base_url = $_SERVER['HTTP_X_FORWARDED_PROTO']. '://'. $_SERVER['HTTP_X_FORWARDED_HOST'];
+}
+```
+
+Then you can use `valet share` and see your site at a URL like, `https://0b39de83.ngrok.io/`.
+
 ## Troubleshooting
 
 ### MySQL User
