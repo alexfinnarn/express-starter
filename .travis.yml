@@ -1,0 +1,47 @@
+os: osx
+
+cache:
+  directories:
+    - $HOME/.composer/cache
+    - $HOME/.drush/cache
+    - $HOME/cache
+
+before_install:
+  # Install dependencies.
+  - brew install homebrew/php/php71
+  - brew install composer
+  - brew install mysql
+  - composer global require laravel/valet "drush/drush:8.*" -v
+
+  # Need to export Composer path.
+  - echo $USER
+  - ls -al /Users/$USER
+  - echo "export PATH='/Users/${USER}/.composer/vendor/bin:$PATH'" >> ~/.bash_profile
+  - source ~/.bash_profile
+
+  # Copy local Drush settings.
+  - cp config/drushrc.php ~/.drush
+
+  # Install Valet.
+  - valet install
+
+script:
+
+  # Start MySQL.
+  - brew services start mysql
+
+  # Run setup script.
+  - ./travis-setup.sh
+
+  # Create site.
+  - cd web
+  - drush dslm-new express drupal-7.57 -y
+  - ls -al
+  - cd express
+  - drush dslm-add-profile express-2.8.5 -y
+  - drush si express --db-url=mysql://root:@127.0.0.1/drupal --account-name=admin --account-pass=admin --site-mail=admin@example.com --site-name="Express" --yes
+
+  # See if site responds with a 200.
+  - HTTP_CODE=$(curl --write-out %{http_code} --silent --output /dev/null express.test)
+  - if [ "$HTTP_CODE" -eq "200" ]; then exit 0; else exit 1; fi
+
