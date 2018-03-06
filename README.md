@@ -4,6 +4,8 @@ Scripts for setting up a local Express dev environment using Laravel Valet.
 ## Valet Installation
 Laravel thankfully has great documentation for installation located at: https://laravel.com/docs/5.6/valet. You will need Homebrew before you run `valet install`, but that command should check for and install PHP, NGINX, and DNSmasq if those aren't installed on your machine.
 
+The Travis build for this project shows steps you can manually take to install needed dependencies: https://github.com/CuBoulder/express-starter/blob/valet/.travis.yml#L10. If you have any issues installing Valet, please refer to the [troubleshooting section](https://github.com/CuBoulder/express-starter#troubleshooting) of this readme.
+
 ## Express Setup
 Once Valet is installed and you have confirmed `.test` domains are working properly, it is time to set up a site and codebase. 
 
