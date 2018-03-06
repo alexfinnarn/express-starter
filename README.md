@@ -45,7 +45,7 @@ Then you can use `valet share` and see your site at a URL like, `https://0b39de8
 
 ### MySQL User
 
-This install assumes that mysql is configured using root with no password.  If you've configured mysql using a password, brew will not reset that.  Use `mysqladmin -u root -p'root' password ''`
+This install assumes that mysql is configured using root with no password.  If you've configured mysql using a password, brew will not reset that.  Use `mysqladmin -u root -p'root' password ''` or edit https://github.com/CuBoulder/express-starter/blob/valet/create-site.sh#L77 to add your user and password, e.g. `drush si express --db-url=mysql://my-user:my-pass@localhost:3306/${SITE} -y`.
 
 ### Bundle Clone Hangs
 
