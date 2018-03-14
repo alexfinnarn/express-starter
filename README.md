@@ -51,6 +51,10 @@ This install assumes that mysql is configured using root with no password.  If y
 
 When `./setup.sh` asks "Do you want to clone down all bundles from prod? (y/n)" you must be able to connect to Atlas to lookup the git urls and hashes of the current code objects. You must be on a wired connection or connected to the UCOMM VPN when running this. 
 
+### git checkout feature/123 says nothing is found
+
+Because cloning a repository with all branches takes much longer, all cores, profiles and packages are cloned with a depth of 1 by default. As a result, `git fetch --all` will return nothing. To change a specific project to include all branches, run `git config remote.origin.fetch "+refs/heads/*:refs/remotes/origin/*"` before `git fetch --all`.  
+
 ### Apache Listening On Port 80
 
 Be sure Apache/httpd (from Apple or Homebrew) is no longer the default listener for port 80.  
