@@ -76,3 +76,7 @@ sudo launchctl unload /System/Library/LaunchDaemons/org.apache.httpd.plist
 
 [DomainException] Unable to determine linked PHP is documented in https://github.com/laravel/valet/issues/470.  It may not be possible to resolve this error using the `brew install php72` recommended in https://laravel.com/docs/5.6/valet.  Using `brew install php71` works and is what we are using with Apache in production.
 
+### AJAX Autocomplete Lookups Fail
+
+Apply https://www.drupal.org/files/issues/autocomplete-security-optional-2749007-9.patch to core. This will eventually be included in our version of Drupal core
+run ` drush vset autocomplete_security_enforce_no_clean_url FALSE`
