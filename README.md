@@ -7,7 +7,17 @@ Laravel thankfully has great documentation for installation located at: https://
 The Travis build for this project shows steps you can manually take to install needed dependencies: https://github.com/CuBoulder/express-starter/blob/valet/.travis.yml#L10. If you have any issues installing Valet, please refer to the [troubleshooting section](https://github.com/CuBoulder/express-starter#troubleshooting) of this readme.
 
 ## Express Setup
-Once Valet is installed and you have confirmed `.test` domains are working properly, it is time to set up a site and codebase. 
+Once Valet is installed and you have confirmed `.test` domains are working properly, it is time to set up a site and codebase. To properly install sites via Drush and have the `local_hosting` module installed automatically, you must alter the `~/.drush/drushrc.php` file. There are environmental variables that can be targeted through PHP-FPM and NGINX requests, but the PHP CLI environment Drush uses does not have any of those variables.
+
+```bash
+# Edit the drushrc file. You can use nano or "open -e" instead of Vim.
+vim ~/.drush/drushrc.php
+
+# Add $_SERVER['VALET_ENV'] = 'yes'; to file.
+# An example drushrc.php file is located in the /config folder of this repo.
+```
+
+Now you can clone down this repository and build out the codebase.
 
 ```bash
 # Clone down this repo on the "valet" branch. 
