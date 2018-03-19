@@ -26,22 +26,28 @@ before_install:
   - valet install
 
 script:
-
   # Start MySQL.
   - brew services start mysql
 
   # Run setup script.
   - ./travis-setup.sh
 
-  # Create site.
+  # Add skeleton via DSLM.
   - cd web
   - drush dslm-new express drupal-7.57 -y
-  - ls -al
   - cd express
   - drush dslm-add-profile express-2.8.5 -y
+
+  # Make sure it is being served by DrupalValetDriver.
+  - valet which
+
+  # Create site.
   - drush si express --db-url=mysql://root:@127.0.0.1/drupal --account-name=admin --account-pass=admin --site-mail=admin@example.com --site-name="Express" --yes
+
+  # Check hosting modules.
+  - drush pm-info local_hosting
+  - drush pm-info ng_hosting
 
   # See if site responds with a 200.
   - HTTP_CODE=$(curl --write-out %{http_code} --silent --output /dev/null express.test)
   - if [ "$HTTP_CODE" -eq "200" ]; then exit 0; else exit 1; fi
-

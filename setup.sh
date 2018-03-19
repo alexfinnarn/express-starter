@@ -32,7 +32,8 @@ cd ${ROOT}/code/dslm_base/profiles
 # git clone -b ${EXPRESS_TAG} git@github.com:CuBoulder/express.git express-${EXPRESS_TAG}
 
 # Checking out default of dev branch.
-git clone --depth 1 git@github.com:CuBoulder/express.git express-${EXPRESS_TAG}
+# git clone git@github.com:CuBoulder/express.git express-${EXPRESS_TAG}
+git clone --branch  feature/2006 git@github.com:CuBoulder/express.git express-${EXPRESS_TAG}
 
 # Add bundles from prod, if wanted.
 echo "Do you want to clone down all bundles from prod? (y/n)"
