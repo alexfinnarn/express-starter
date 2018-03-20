@@ -24,6 +24,10 @@ echo "Cloning and checking out Express ${EXPRESS_TAG}..."
 cd ${ROOT}/code/dslm_base/profiles
 git clone --branch feature/2006 https://github.com/CuBoulder/express.git express-${EXPRESS_TAG}
 
+cd express-${EXPRESS_TAG}
+git branch
+cd ../
+
 # Download DSLM if it doesn't already exist on host machine.
 drush dl dslm-7.x -y
 

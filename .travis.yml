@@ -47,6 +47,7 @@ script:
   # Check hosting modules.
   - drush pm-info local_hosting
   - drush pm-info ng_hosting
+  - drush pm-info travis_hosting
 
   # See if site responds with a 200.
   - HTTP_CODE=$(curl --write-out %{http_code} --silent --output /dev/null express.test)
