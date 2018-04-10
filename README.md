@@ -31,6 +31,9 @@ cd exs
 # For this example, a site is created at "http://express.test/".
 ./create-site.sh -p express
 ```
+
+The Valet Drupal driver currently has an issue with autocomplete requests. The URI is set in `$_GET['q']` but is overwritten always as `/index.php` losing where the autocomplete path was initially heading. To mitigate this issue until a PR is merged in, you should add https://github.com/laravel/valet/pull/456/files to the `DrupalValetDriver.php`. Afterwards, make sure the correct driver is serving your site by going into the site directory and typing `valet which`.
+
 ### Services Configuration
 
 The configuration for nginx, PHP, and MySQL can be changed, but we don't do this on install since restarting the services has been spotty. Changing the default configuration isn't neccessary to have a fast running site, but you may want to experiment with values if you think parts of the application are running slow.
