@@ -32,6 +32,8 @@ cd exs
 ./create-site.sh -p express
 ```
 
+### Autocomplete Issue
+
 The Valet Drupal driver currently has an issue with autocomplete requests. The URI is set in `$_GET['q']` but is overwritten always as `/index.php` losing where the autocomplete path was initially heading. To mitigate this issue until a PR is merged in, you should add https://github.com/laravel/valet/pull/456/files to the `DrupalValetDriver.php`. Afterwards, make sure the correct driver is serving your site by going into the site directory and typing `valet which`.
 
 ### Services Configuration
