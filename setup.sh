@@ -7,9 +7,9 @@ ROOT=$(pwd)
 echo Project root is: ${ROOT}
 
 # Define initial gathering of Drupal and Express.
-DRUPAL_TAG=7.57
+DRUPAL_TAG=7.59
 # The tag is only used here to create the DSLM directory.
-EXPRESS_TAG=2.8.5
+EXPRESS_TAG=2.9.0
 
 # Download Drupal.
 echo "Cloning and checking out ${DRUPAL_TAG}..."
@@ -31,8 +31,8 @@ cd ${ROOT}/code/dslm_base/profiles
 # If checking out a tag...
 # git clone -b ${EXPRESS_TAG} git@github.com:CuBoulder/express.git express-${EXPRESS_TAG}
 
-# Checking out default of dev branch.
-git clone --depth 1 git@github.com:CuBoulder/express.git express-${EXPRESS_TAG}
+# Checking out release branch.
+git clone --depth 1 -b release/${EXPRESS_TAG} git@github.com:CuBoulder/express.git express-${EXPRESS_TAG}
 
 # Add bundles from prod, if wanted.
 echo "Do you want to clone down all bundles from prod? (y/n)"
