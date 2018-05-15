@@ -7,7 +7,7 @@ cache:
     - $HOME/cache
 
 before_install:
-  # Install dependencies.
+  # Install dependencies...
   - brew install php71
   - brew install composer
   - brew install mysql
