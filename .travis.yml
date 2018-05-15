@@ -8,7 +8,7 @@ cache:
 
 before_install:
   # Install dependencies.
-  - brew install homebrew/php/php71
+  - brew install php71
   - brew install composer
   - brew install mysql
   - composer global require laravel/valet "drush/drush:8.*" -v
