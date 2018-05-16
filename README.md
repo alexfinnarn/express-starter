@@ -1,6 +1,14 @@
 # express-starter
 Scripts for setting up a local Express dev environment using Laravel Valet.
 
+## Install Dependencies
+While the Valet installation takes care of PHP and NGINX, Drush and MySQL aren't installed by default. You may already have the needed prerequisites, but if you don't or if you have a new laptop, then look at https://github.com/CuBoulder/express-starter/blob/valet/.travis.yml#L10 for how "Express Starter" is installed on Travis using a new MacOS container.
+
+**Travis Build:**
+[![Build Status](https://travis-ci.org/CuBoulder/express-starter.svg?branch=valet)](https://travis-ci.org/CuBoulder/express-starter)
+
+If the Travis build is failing, then you will probably have a bad time with your installation process. Contact the DevOps engineer on your team responsible for local development before beginning your install.
+
 ## Valet Installation
 Laravel thankfully has great documentation for installation located at: https://laravel.com/docs/5.6/valet. You will need Homebrew before you run `valet install`, but that command should check for and install PHP, NGINX, and DNSmasq if those aren't installed on your machine.
 
